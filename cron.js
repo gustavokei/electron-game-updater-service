@@ -20,9 +20,6 @@ const keepAlive = new cron.CronJob('*/14 * * * *', function () {
                 );
             }
         })
-        .on('error', (err) => {
-            console.error('Error during Fetch:', err.message);
-        });
 });
 
 // Export the cron job.
