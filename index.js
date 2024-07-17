@@ -10,6 +10,7 @@ const port = process.env.PORT || 3000;
 // Define a route for GET requests to "/"
 app.get('/', (req, res) => {
   res.send({
+    clientDir: process.env.CLIENT_DIR,
     startCmd: process.env.START_CMD,
     launcherVer: process.env.LAUNCHER_VER,
     clientVer: process.env.CLIENT_VER,
