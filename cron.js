@@ -1,15 +1,15 @@
 require('dotenv').config(); // Load environment variables from .env file
 
 const cron = require('cron');
-const http = require('http');
+const https = require('https');
 
 const backendUrl = process.env.BACKEND_URL;
 const keepAlive = new cron.CronJob('*/1 * * * *', function () {
     // This function will be executed every 1 minute.
     console.log(`Fetching server`);
 
-    // Perform an HTTP GET request to hit any backend API.
-    http
+    // Perform a GET request to hit any backend API.
+    https
         .get(backendUrl, (res) => {
             let data = '';
 
