@@ -4,32 +4,21 @@ const cron = require('cron');
 const https = require('https');
 
 const backendUrl = process.env.BACKEND_URL;
-const keepAlive = new cron.CronJob('*/1 * * * *', function () {
-    // This function will be executed every 1 minute.
+const keepAlive = new cron.CronJob('*/14 * * * *', function () {
+    // This function will be executed every 14 minutes.
     console.log(`Fetching server`);
 
-    // Perform a GET request to hit any backend API.
+    // Perform an HTTPS GET request to hit any backend API.
     https
         .get(backendUrl, (res) => {
-            let data = '';
-
-            // Collect data chunks.
-            res.on('data', (chunk) => {
-                data += chunk;
-            });
-
-            // When the response is complete, log the result.
-            res.on('end', () => {
-                if (res.statusCode === 200) {
-                    console.log('Server fetched');
-                    console.log('Response:', data);
-                } else {
-                    console.error(
-                        `Failed to fetch server with status code: ${res.statusCode}`
-                    );
-                    console.error('Response:', data);
-                }
-            });
+            if (res.statusCode === 200) {
+                console.log('Server fetched');
+                console.log(res)
+            } else {
+                console.error(
+                    `Failed to fetch server with status code: ${res.statusCode}`
+                );
+            }
         })
         .on('error', (err) => {
             console.error('Error during Fetch:', err.message);

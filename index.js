@@ -10,14 +10,26 @@ const port = process.env.PORT || 3000;
 // Define a route for GET requests to "/"
 app.get('/', (req, res) => {
   res.send({
-    clientDir: process.env.CLIENT_DIR,
-    startCmd: process.env.START_CMD,
-    launcherVer: process.env.LAUNCHER_VER,
-    clientVer: process.env.CLIENT_VER,
-    patchVer: process.env.PATCH_VER,
-    launcherUrl: process.env.LAUNCHER_URL,
-    clientUrl: process.env.CLIENT_URL,
-    patchUrl: process.env.PATCH_URL,
+    1: {
+      clientDir: process.env.CLIENT_DIR1,
+      startCmd: process.env.START_CMD1,
+      launcherVer: process.env.LAUNCHER_VER1,
+      clientVer: process.env.CLIENT_VER1,
+      patchVer: process.env.PATCH_VER1,
+      launcherUrl: process.env.LAUNCHER_URL1,
+      clientUrl: process.env.CLIENT_URL1,
+      patchUrl: process.env.PATCH_URL1,
+    },
+    2: {
+      clientDir: process.env.CLIENT_DIR2,
+      startCmd: process.env.START_CMD2,
+      launcherVer: process.env.LAUNCHER_VER2,
+      clientVer: process.env.CLIENT_VER2,
+      patchVer: process.env.PATCH_VER2,
+      launcherUrl: process.env.LAUNCHER_URL2,
+      clientUrl: process.env.CLIENT_URL2,
+      patchUrl: process.env.PATCH_URL2,
+    }
   });
 });
 
